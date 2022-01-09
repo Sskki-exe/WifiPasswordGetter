@@ -33,7 +33,7 @@ setlocal EnableDelayedExpansion
 ```batch
 netsh wlan show profile | findstr /C:"    All User Profile     : " > a.txt
 ```
-4. For loops are declared using `for` (duh).
+4. _For loops_ are declared using `for` (duh).
 
     `/f` indicates that the loop will iterate through a file's contents.
 
@@ -62,8 +62,9 @@ echo   Network: !x:~27! >> wifiPassOutput.txt
 ```batch
 netsh wlan show profile "!x:~27!" key=clear | findstr /C:"    Key Content            :" > b.txt || (echo       Key: none >> wifiPassOutput.txt)
 ```
-7. For each line in "b.txt", append the word _"Key: "_ and the wifi password to "wifiPassOutput.txt".  
-    Add an empty line and close the outside for loop
+7. For each line in "b.txt", append the word _"Key: "_ and the wifi password to "wifiPassOutput.txt".
+
+    Add an empty line and close the outside _for loop_.
 ```batch
 for /f "delims=" %%b in (b.txt) DO (
 set y=%%b
